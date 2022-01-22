@@ -20,7 +20,7 @@ blob = cv.dnn.blobFromImage(img, 1/255.0, (416, 416), swapRB=True, crop=False)
 r = blob[0, 0, :, :]
 
 cv.imshow('blob', r)
-text = 'Blob shape=' + blob.shape
+text = f'Blob shape={blob.shape}'
 cv.displayOverlay('blob', text)
 cv.waitKey(1)
 
@@ -29,7 +29,7 @@ t0 = time.time()
 outputs = net.forward(ln)
 t = time.time()
 
-cv.displayOverlay('window', 'forward propagation time=' + t-t0)
+cv.displayOverlay('window', f'forward propagation time={t-t0}')
 cv.imshow('window',  img)
 cv.waitKey(0)
 cv.destroyAllWindows()
